@@ -70,12 +70,18 @@ public class PlayerCollision : MonoBehaviour
            // Debug.Log(other.name);
             SavepointsManager managerSP = other.transform.parent.GetComponent<SavepointsManager>();
             managerSP.FindSavePoint(other.name);
+                        GameManager.SaveScore(100);
         }
 
         if (other.gameObject.CompareTag("Gem")){
             Debug.Log(other.GetComponent<GemType>().typeGem);
             Debug.Log((int)other.GetComponent<GemType>().typeGem);
+            GameManager.SaveScore(100);
+        
             GameManager.instance.gemQuantity[(int)other.GetComponent<GemType>().typeGem]++;
+            GameManager.SaveGemQuantity();
+    
+          
             
             /*
             InventoryManager playerInventory = pmPlayer.GetPlayerInventory();

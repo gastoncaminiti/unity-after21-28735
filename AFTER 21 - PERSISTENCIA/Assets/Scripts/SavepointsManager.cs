@@ -23,7 +23,7 @@ public class SavepointsManager : MonoBehaviour
 
     public void FindSavePoint(string name){
         int indexPoint = Savepoint.FindIndex(item => item.name == name);
-        GameManager.instance.lastSP = indexPoint;
+        GameManager.SaveSP(indexPoint);
     }
 
     public Transform GetSavePoint(int index){
